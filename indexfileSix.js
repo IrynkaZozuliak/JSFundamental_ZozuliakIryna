@@ -32,3 +32,10 @@ console.log (`Your password is  ${yourPassword}!`);
 
 alert (`Dear  ${yourLogin} your email is  ${yourEmail} and your password is  ${yourPassword} !`);
 
+//Завдання 8
+
+let oneHour = 60;
+
+console.log (oneHour*60);
+console.log (oneHour*60*24);
+console.log (oneHour*60*24*30);
