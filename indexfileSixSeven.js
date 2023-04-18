@@ -34,8 +34,8 @@ alert (`Dear  ${yourLogin} your email is  ${yourEmail} and your password is  ${y
 
 //Завдання 8
 
-let oneHour = 60;
+let oneHour = 60; //тут 1 година рівна 60 хвилин
 
-console.log (oneHour*60);
-console.log (oneHour*60*24);
-console.log (oneHour*60*24*30);
+console.log (oneHour*60); //кількість секунд в годині
+console.log (oneHour*60*24); //кількість секунд в добі
+console.log (oneHour*60*24*30); //кількість секунд в місяці
