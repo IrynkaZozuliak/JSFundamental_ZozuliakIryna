@@ -12,22 +12,116 @@
  
  //Завдання2 
  
- let x = 1;
-let y = 2;
+ //Завдання3
+  const age = prompt ("Скільки вам років?");
+ let isAdult;
 
-let res1 = // Допишіть код, необхідно використовувати змінні x і y
-console.log(res1); // ""12""
-console.log(typeof res1); // ""string""
+ if (age >= 18) {
+    isAdult = true;
+    console.log ("Ви досягли повнолітнього віку.");
 
-let res2 = // Допишіть код, необхідно використовувати змінні x і y
-console.log(res2); // ""true2""
-console.log(typeof res2); // ""string""
-
-let res3 = // Допишіть код, необхідно використовувати змінні x і y
-console.log(res3); // true
-console.log(typeof res3); // ""boolean""
-
-let res4 = // Допишіть код, необхідно використовувати змінні x і y
-console.log(res4); // NaN
-console.log(typeof res4); // ""number""
+ } else {
+    isAdult = false;
+    console.log ("Ви ще надто молоді");
+ }
  
+ 
+ //Завдання4
+  let arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
+
+// Підрахунок кількості входжень кожного числа
+let counts = {};
+for (let i = 0; i < arr.length; i++) {
+  let num = arr[i];
+  counts[num] = counts[num] ? counts[num] + 1 : 1;
+}
+
+// Знаходження числа, яке найбільш часто входить в масив
+let maxCount = 0;
+let data;
+for (const num in counts) {
+  if (counts[num] > maxCount) {
+    maxCount = counts[num];
+    data = num;
+  }
+}
+
+// Створення нового масиву з цим числом та видалення всіх входжень з поточного масиву
+let newArr = arr.filter(num => num !== Number(data));
+arr = newArr;
+
+console.log(data); // 5
+console.log(arr); // [4, 2, 1, 6, 3, 2]
+
+
+
+//Завдання5
+// Запитати в користувача довжини сторін трикутника
+let a = parseFloat(prompt("Введіть довжину першої сторони трикутника:"));
+let b = parseFloat(prompt("Введіть довжину другої сторони трикутника:"));
+let c = parseFloat(prompt("Введіть довжину третьої сторони трикутника:"));
+
+// Перевірити чи введені дані коректні
+if (isNaN(a) ||  isNaN(b) ||  isNaN(c)) {
+  console.log("Incorrect data");
+} else {
+  // Обчислити півпериметр трикутника
+  let p = (a + b + c) / 2;
+
+  // Обчислити площу трикутника
+  let s = Math.sqrt(p * (p - a) * (p - b) * (p - c)).toFixed(3);
+
+  // Вивести площу трикутника в консоль
+  console.log("Площа трикутника: " + s);
+
+  // Перевірити чи трикутник є прямокутним
+  if (a**2 + b ** 2 === c ** 2 || a ** 2 + c ** 2 === b ** 2 ||  b ** 2 + c ** 2 === a ** 2) {
+    console.log("Цей трикутник є прямокутним");
+  } else {
+    console.log("Цей трикутник не є прямокутним");
+  }
+}
+
+
+
+//Завдання6
+спосібперший
+
+// Отримання поточного часу
+const currentTime = new Date();
+const currentHour = currentTime.getHours();
+
+// Умовна конструкція для виведення привітання в залежності від часу доби
+if (currentHour >= 23 || currentHour < 5) {
+  console.log("Доброї ночі");
+} else if (currentHour >= 5 && currentHour < 11) {
+  console.log("Доброго ранку");
+} else if (currentHour >= 11 && currentHour < 17) {
+  console.log("Доброго дня");
+} else {
+  console.log("Доброго вечора");
+}
+
+
+
+спосіб другий 
+
+// Отримання поточного часу
+const currentTime = new Date();
+const currentHour = currentTime.getHours();
+
+// Умовна конструкція для виведення привітання в залежності від часу доби
+switch (true) {
+  case (currentHour >= 23 || currentHour < 5):
+    console.log("Доброї ночі");
+    break;
+  case (currentHour >= 5 && currentHour < 11):
+    console.log("Доброго ранку");
+    break;
+  case (currentHour >= 11 && currentHour < 17):
+    console.log("Доброго дня");
+    break;
+  default:
+    console.log("Доброго вечора");
+    break;
+}
