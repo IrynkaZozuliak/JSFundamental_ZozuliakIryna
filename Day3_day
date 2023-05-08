@@ -1,18 +1,96 @@
 //Завдання1
-
+function createArray(start, end) {
+    let arr = [];
+    for (let i = start; i <= end; i++) {
+      arr.push(i);
+    }
+    return arr;
+  }
+  
+  let arr = createArray(2, 9);
+  console.log(arr); // [2, 3, 4, 5, 6, 7, 8, 9]
 
 
 //Завдання2
+let a = 1;
+let b = 10;
 
+for (let i = a; i <= b; i++) {
+  for (let j = 1; j <= i - a + 1; j++) {
+    console.log(i);
+  }
+}
 
 //Завдання3
 
 
+function randArray(k) {
+    var arr = [];
+    for (var i = 0; i < k; i++) {
+      arr.push(Math.floor(Math.random() * 500) + 1);
+    }
+    return arr;
+  }
+  
+  // Приклад використання:
+  var arr = randArray(5);
+  console.log(arr); // [399, 310, 232, 379, 40]
+  
+  
 //Завдання4
-
+function compact(arr) {
+    return [...new Set(arr)];
+  }
 
 //Завдання5
 
+function separateByDataType(arr) {
+    const result = {};
+  
+    for (const val of arr) {
+      const dataType = typeof val;
+  
+      if (dataType === "object" && !Array.isArray(val)) {
+        // якщо тип даних - об'єкт, але не масив, то рекурсивно обробляємо його вміст
+        const nestedResult = separateByDataType(Object.values(val));
+        Object.keys(nestedResult).forEach((nestedDataType) => {
+          result[nestedDataType] = (result[nestedDataType] || []).concat(nestedResult[nestedDataType]);
+        });
+      } else {
+        result[dataType] = (result[dataType] || []).concat(val);
+      }
+    }
+  
+    return result;
+  }
+  
+  const arr = [5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "broun"];
+  const separated = separateByDataType(arr);
+  console.log(separated);
+  
+  
 //Завдання6
 
+
+
 //Завдання7
+function findUnique(arr) {
+    // Створити об'єкт для зберігання кількості входжень кожного елемента
+    let counts = {};
+    
+    // Перевірити кожен елемент масиву
+    for (let i = 0; i < arr.length; i++) {
+      let num = arr[i];
+      
+      // Якщо елемент вже з'являвся в масиві, то він не є унікальним
+      if (counts[num]) {
+        return false;
+      }
+      
+      // Якщо елемент ще не з'являвся, то додати його до об'єкту з лічильниками
+      counts[num] = 1;
+    }
+    
+    // Якщо всі елементи були унікальними, то повернути true
+    return true;
+  }
