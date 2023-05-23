@@ -32,9 +32,6 @@ console.log(res4); // NaN
 console.log(typeof res4); // "number"
  
  
- 
- 
- 
  //Завдання3
   const age = prompt ("Скільки вам років?");
  let isAdult;
