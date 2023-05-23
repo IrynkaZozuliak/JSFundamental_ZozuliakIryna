@@ -1,0 +1,96 @@
+//Завдання 1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text_hh1">Iryna Zozuliak</h1>
+    <p class="text_pp1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione harum eos omnis quibusdam neque. 
+        Adipisci saepe aperiam consequatur in, alias dolorem, voluptas dolorum, quis quaerat ducimus minus 
+         dignissimos sit!</p>
+         
+    <script>
+        //JS code...
+        alert ('Hello! My name is Iryna.');                //Виводить моє ім'я за допомогою функції alert()
+    </script>
+       
+</body>
+</html>
+
+
+
+//Завдання2
+let lastName = "My last name - Zozuliak";
+alert (lastName);
+
+
+//завдання 3
+let a = 105;
+let b = 15;
+console.log(a);
+console.log(b);
+
+
+//Завдання 4
+const myObject = {
+  myString: "Hello",
+  myNumber: 42,
+  myBoolean: true,
+  myUndefined: undefined,
+  myNull: null
+};
+
+//Завдання 5
+let yourAge = confirm("Are you of legal age?");
+console.log("isAdult: " + yourAge);
+
+//завдання 6
+let firstName = "Iryna";
+let secondName = "Zozuliak";
+let educationGroup = 106;
+let myAge = 22;
+
+let familyStatus = true;
+
+console.log(`educationGroup: ${educationGroup}, type: ${typeof (educationGroup)}`);
+console.log(`myAge: ${myAge}, type: ${typeof (myAge)}`);
+console.log(`familyStatus: ${familyStatus}, type: ${typeof (familyStatus)}`);
+console.log(`firstName: ${firstName}, type: ${typeof (firstName)}`);
+console.log(`secondName: ${secondName}, type: ${typeof (secondName)}`);
+
+let myFirstEducation ;
+console.log(`myFirstEducation: ${myFirstEducation}, type: ${typeof (myFirstEducation)}`);
+
+//Завдання 7 
+let yourLogin = prompt ("Enter your Login: "); 
+console.log (`Your login is  ${yourLogin}!`);
+
+let yourEmail = prompt ("Enter your email: ");
+console.log (`Your email is  ${yourEmail}!`);
+
+let yourPassword = prompt ("Enter your password: ");
+console.log (`Your password is  ${yourPassword}!`);
+
+alert (`Dear  ${yourLogin} your email is  ${yourEmail} and your password is  ${yourPassword} !`);
+
+
+//Завдання 8
+let oneHour = 60; //тут 1 година рівна 60 хвилин
+
+console.log (oneHour*60); //кількість секунд в годині
+console.log (oneHour*60*24); //кількість секунд в добі
+console.log (oneHour*60*24*30); //кількість секунд в місяці
+
+
+
+
+
+
+
+
+
