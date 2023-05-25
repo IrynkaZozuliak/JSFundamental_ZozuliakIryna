@@ -1,4 +1,11 @@
+
 //Завдання1
+function compact(arr) {
+    return [...new Set(arr)];
+  }
+
+
+//Завдання2
 function createArray(start, end) {
     let arr = [];
     for (let i = start; i <= end; i++) {
@@ -11,7 +18,7 @@ function createArray(start, end) {
   console.log(arr); // [2, 3, 4, 5, 6, 7, 8, 9]
 
 
-//Завдання2
+//Завдання3
 let a = 1;
 let b = 10;
 
@@ -21,9 +28,8 @@ for (let i = a; i <= b; i++) {
   }
 }
 
-//Завдання3
 
-
+//Завдання4
 function randArray(k) {
     var arr = [];
     for (var i = 0; i < k; i++) {
@@ -37,10 +43,6 @@ function randArray(k) {
   console.log(arr); // [399, 310, 232, 379, 40]
   
   
-//Завдання4
-function compact(arr) {
-    return [...new Set(arr)];
-  }
 
 //Завдання5
 
@@ -69,9 +71,9 @@ function separateByDataType(arr) {
   console.log(separated);
   
   
-//Завдання6
-
-спосібперший
+  
+//Завдання 8
+//спосібперший
 
 // Отримання поточного часу
 const currentTime = new Date();
@@ -90,7 +92,7 @@ if (currentHour >= 23 || currentHour < 5) {
 
 
 
-спосіб другий 
+//спосіб другий 
 
 // Отримання поточного часу
 const currentTime = new Date();
@@ -112,25 +114,3 @@ switch (true) {
     break;
 }
 
-
-//Завдання7
-function findUnique(arr) {
-    // Створити об'єкт для зберігання кількості входжень кожного елемента
-    let counts = {};
-    
-    // Перевірити кожен елемент масиву
-    for (let i = 0; i < arr.length; i++) {
-      let num = arr[i];
-      
-      // Якщо елемент вже з'являвся в масиві, то він не є унікальним
-      if (counts[num]) {
-        return false;
-      }
-      
-      // Якщо елемент ще не з'являвся, то додати його до об'єкту з лічильниками
-      counts[num] = 1;
-    }
-    
-    // Якщо всі елементи були унікальними, то повернути true
-    return true;
-  }
