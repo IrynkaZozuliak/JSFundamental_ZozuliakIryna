@@ -1,0 +1,147 @@
+//Завдання1
+        // Отримуємо елементи списку за допомогою їх id
+        const listItems = document.querySelectorAll('#list li');
+
+        // Отримуємо текстовий вміст кожного елемента
+        const item1 = listItems[0].textContent;
+        const item2 = listItems[4].textContent;
+        const item3 = listItems[1].textContent;
+        const item4 = listItems[3].textContent;
+        const item5 = listItems[2].textContent;
+
+        // Створюємо рядок з послідовністю вмісту елементів
+        const result = ${item1}, ${item2}, ${item3}, ${item4}, ${item5};
+
+        // Виводимо результат у модальному вікні
+        alert(result);
+
+
+//Завдання2
+
+
+      // Отримуємо посилання на елементи сторінки за допомогою їх id
+      const header = document.querySelector('h1');
+      const myDiv = document.getElementById('myDiv');
+      const paragraphs = myDiv.getElementsByTagName('p');
+      const myList = document.getElementById('myList');
+      const span = document.querySelector('span');
+
+      // Застосовуємо стилі до елементів
+      header.style.fontSize = '24px';
+      header.style.backgroundColor = 'green';
+      header.style.fontWeight = 'bold';
+
+      for (let i = 0; i < paragraphs.length; i++) {
+        const paragraph = paragraphs[i];
+        paragraph.style.color = 'blue';
+      }
+
+      paragraphs[1].style.color = 'red';
+      paragraphs[2].style.textDecoration = 'underline';
+      paragraphs[3].style.fontStyle = 'italic';
+
+      myList.style.listStyleType = 'none';
+      myList.style.display = 'inline';
+
+      span.style.display = 'none';
+
+//Завдання3
+        // Створюємо елементи
+        const body = document.getElementsByTagName('body')[0];
+        const main = document.createElement('main');
+        const div = document.createElement('div');
+        const paragraph = document.createElement('p');
+
+        // Додаємо атрибути
+        main.setAttribute('class', 'mainClass check item');
+        div.setAttribute('id', 'myDiv');
+
+        // Додаємо текст до параграфу
+        paragraph.textContent = 'First paragraph';
+
+        // Встановлюємо структуру тегів
+        div.appendChild(paragraph);
+        main.appendChild(div);
+        body.appendChild(main);
+
+//Завдання4
+        // Отримуємо посилання на елементи сторінки за допомогою їх селекторів
+        const button = document.querySelector('.btn');
+        const outBlock = document.querySelector('.out');
+        const inputs = document.querySelectorAll('.arr');
+
+        // Додаємо обробник події для кнопки
+        button.addEventListener('click', function() {
+          // Створюємо об'єкт для зберігання значень полів
+          const formData = {};
+
+          // Отримуємо значення полів із атрибутами "data-form" та зберігаємо їх в об'єкті formData
+          inputs.forEach(function(input) {
+            const key = input.getAttribute('data-form');
+            const value = input.value;
+            formData[key] = value;
+          });
+
+          // Виводимо дані з об'єкту formData в поле outBlock
+          outBlock.textContent = JSON.stringify(formData, null, 2);
+        });
+
+
+//Завдання5
+
+          // Вибірка всіх елементів з класом "circle"
+          const circles = document.querySelectorAll('.circle');
+
+          // Перебираємо кожен елемент
+          circles.forEach(function(circle) {
+            // Отримуємо значення атрибута "data-anim"
+            const animation = circle.getAttribute('data-anim');
+
+            // Додаємо значення атрибута як клас за допомогою classList
+            circle.classList.add(animation);
+          });
+
+          // Перевірка застосованих анімацій
+          circles.forEach(function(circle) {
+            const animation = circle.getAttribute('data-anim');
+
+            // Перевіряємо чи містить елемент клас з анімацією
+            if (circle.classList.contains(animation)) {
+              console.log(Елемент з класом "circle" застосував анімацію "${animation}");
+            } else {
+              console.log(Елемент з класом "circle" не застосував анімацію "${animation}");
+            }
+          });
+
+
+//Завдання6
+
+        // Отримання необхідних елементів з DOM
+        const colors = document.querySelectorAll('.color');
+        const priceElement = document.getElementById('outprice');
+
+        // Функція для оновлення ціни товару
+        function updatePrice(color) {
+          const selectedColor = color.getAttribute('color');
+          const selectedPrice = color.getAttribute('data-price');
+
+          // Зміна активного кольору
+          colors.forEach(color => color.classList.remove('active'));
+          color.classList.add('active');
+
+          // Оновлення відображення ціни товару
+          priceElement.textContent = selectedPrice;
+        }
+
+        // Додавання обробників подій до кожного кольору
+        colors.forEach(color => {
+          color.addEventListener('click', () => {
+            updatePrice(color);
+          });
+        });
+
+        // Запуск функції оновлення ціни для першого кольору за замовчуванням
+        updatePrice(colors[0]);
+
+
+
