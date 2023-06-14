@@ -1,0 +1,174 @@
+//Завдання1
+
+      // Крок 1: Створення нового вікна розміром 300x300 пікселів
+      var newWindow = window.open('', '', 'width=300,height=300');
+
+      // Крок 2: Затримка 2 секунди та зміна розмірів вікна на 500x500 пікселів
+      setTimeout(function() {
+        newWindow.resizeTo(500, 500);
+      }, 2000);
+
+      // Крок 3: Затримка 4 секунди та переміщення вікна в точку з координатами (200, 200)
+      setTimeout(function() {
+        newWindow.moveTo(200, 200);
+      }, 4000);
+
+      // Крок 4: Затримка 6 секунди та закриття вікна
+      setTimeout(function() {
+        newWindow.close();
+      }, 6000);
+
+//Завдання2
+
+      function changeCSS() {
+        var paragraph = document.getElementById('text'); // Отримуємо посилання на елемент <p> за його id
+
+        // Зміна стилю елемента <p>
+        paragraph.style.color = 'orange';
+        paragraph.style.fontSize = '20px';
+        paragraph.style.fontFamily = 'Comic Sans MS';
+      }
+
+      // Отримуємо посилання на кнопку
+      var button = document.querySelector('button');
+
+      // Додаємо обробник події "click" до кнопки
+      button.addEventListener('click', changeCSS);
+
+
+//Завдання3
+
+                      <!DOCTYPE html>
+                      <html>
+                      <head>
+                        <title>JavaScript Events</title>
+                        <style>
+                          body {
+                            background-color: white;
+                          }
+                        </style>
+                      </head>
+                      <body>
+                        <button id="btn1">Button 1</button>
+                        <button id="btn2">Button 2</button>
+                        <button id="btn3">Button 3</button>
+                        <a id="link" href="#">Link</a>
+
+                        <script src="script.js"></script>
+                      </body>
+                      </html>
+                                        
+                      
+                      //Java Script код    
+                      
+           // Кнопка 1: Зміна фонового кольору на синій при кліку
+          var btn1 = document.getElementById('btn1');
+          btn1.addEventListener('click', function() {
+            document.body.style.backgroundColor = 'blue';
+          });
+
+          // Кнопка 2: Зміна фонового кольору на рожевий при подвійному кліку
+          var btn2 = document.getElementById('btn2');
+          btn2.addEventListener('dblclick', function() {
+            document.body.style.backgroundColor = 'pink';
+          });
+
+          // Кнопка 3: Зміна фонового кольору на коричневий при натисканні і утримуванні, білий при відпусканні
+          var btn3 = document.getElementById('btn3');
+          btn3.addEventListener('mousedown', function() {
+            document.body.style.backgroundColor = 'brown';
+          });
+          btn3.addEventListener('mouseup', function() {
+            document.body.style.backgroundColor = 'white';
+          });
+
+          // Лінка: Зміна фонового кольору на жовтий при наведенні, білий при відведенні
+          var link = document.getElementById('link');
+          link.addEventListener('mouseover', function() {
+            document.body.style.backgroundColor = 'yellow';
+          });
+          link.addEventListener('mouseout', function() {
+            document.body.style.backgroundColor = 'white';
+          });
+
+                     
+
+//Завдання4
+
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Delete List Item</title>
+          </head>
+          <body>
+            <h2>Delete List Item</h2>
+            <select id="list">
+              <option value="1">Peter</option>
+              <option value="2">John</option>
+              <option value="3">Alise</option>
+              <option value="4">Alex</option>
+              <option value="5">Iren</option>
+            </select>
+            <button id="deleteBtn">Choose and delete</button>
+
+            <script src="script.js"></script>
+          </body>
+          </html>
+
+
+
+          //JS Code
+          // Отримуємо посилання на елементи
+          var list = document.getElementById('list');
+          var deleteBtn = document.getElementById('deleteBtn');
+
+          // Додаємо обробник події "click" до кнопки
+          deleteBtn.addEventListener('click', function() {
+            var selectedOption = list.options[list.selectedIndex]; // Отримуємо обраний елемент списку
+
+            if (selectedOption) {
+              list.removeChild(selectedOption); // Видаляємо обраний елемент зі списку
+            }
+          });
+
+
+
+//Завдання5
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Events</title>
+</head>
+<body>
+  <h2>Button Events</h2>
+  <button id="myButton">Press Me</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+//JS Code
+// Отримуємо посилання на кнопку
+var myButton = document.getElementById('myButton');
+
+// Додаємо обробники подій
+myButton.addEventListener('click', function() {
+  alert('I was pressed!');
+});
+
+myButton.addEventListener('mouseover', function() {
+  alert('Mouse on me!');
+});
+
+myButton.addEventListener('mouseout', function() {
+  alert('Mouse is not on me!');
+});
+
+
+
+
+
