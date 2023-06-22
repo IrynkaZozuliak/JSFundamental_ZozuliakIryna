@@ -1,11 +1,79 @@
 //Завдання1
+// Знайти всі <h2> з класом "head"
+const headings = document.querySelectorAll('h2.head');
 
+// Змінити фоновий колір на зелений
+headings.forEach(heading => {
+  heading.style.backgroundColor = 'green';
+  
+  // Знайти елементи з класом "inner" всередині поточного <h2>
+  const innerElements = heading.querySelectorAll('.inner');
+  
+  // Задати розмір шрифту 35px для елементів з класом "inner"
+  innerElements.forEach(innerElement => {
+    innerElement.style.fontSize = '35px';
+  });
+});
 
 
 //Завдання2
+// Знайти всі елементи <a> на сторінці
+const links = document.getElementsByTagName('a');
+
+// Пройтися по кожному елементу <a>
+for (let i = 0; i < links.length; i++) {
+  const link = links[i];
+  
+  // Перевірити, чи починається href з "https://"
+  if (link.href.startsWith('https://')) {
+    // Додати атрибут target="_blank"
+    link.setAttribute('target', '_blank');
+  }
+}
 
 
 //Завдання3
+// Знайти всі елементи <h3> на сторінці
+const headings = document.getElementsByTagName('h3');
+
+// Пройтися по кожному елементу <h3>
+for (let i = 0; i < headings.length; i++) {
+  const heading = headings[i];
+  
+  // Знайти наступний елемент після <h3>
+  const nextElement = heading.nextElementSibling;
+  
+  // Перевірити, чи це <div> елемент
+  if (nextElement && nextElement.tagName.toLowerCase() === 'div') {
+    // Перемістити <div> перед <h3>
+    heading.parentNode.insertBefore(nextElement, heading);
+  }
+}
 
 
 //Завдання4
+// Знайти всі елементи <input> з типом "checkbox"
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+// Змінна для зберігання кількості вибраних чекбоксів
+let selectedCount = 0;
+
+// Додати обробник події для кожного чекбокса
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    // Перевірити, чи чекбокс відмічений
+    if (checkbox.checked) {
+      selectedCount++;
+      
+      // Перевірити, чи користувач вибрав 3 чекбокси
+      if (selectedCount >= 3) {
+        // Заблокувати всі чекбокси
+        checkboxes.forEach(cb => {
+          cb.disabled = true;
+        });
+      }
+    } else {
+      selectedCount--;
+    }
+  });
+});
