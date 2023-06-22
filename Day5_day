@@ -1,0 +1,76 @@
+//Завдання1
+class Circle {
+  constructor(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+  }
+
+  getCircumference() {
+    return 2 * Math.PI * this.radius;
+  }
+
+  static getCircumferenceByRadius(radius) {
+    return 2 * Math.PI * radius;
+  }
+
+  getCopy() {
+    return new Circle(this.x, this.y, this.radius);
+  }
+
+  static createFromCoordinates(x, y, radius) {
+    return new Circle(x, y, radius);
+  }
+
+  isPointInside(x, y) {
+    const distance = Math.sqrt((x - this.x) ** 2 + (y - this.y) ** 2);
+    return distance <= this.radius;
+  }
+
+  toString() {
+    return `Circle: Center(${this.x}, ${this.y}), Radius: ${this.radius}`;
+  }
+}
+
+// Приклад використання класу Circle
+const circle = new Circle(0, 0, 5);
+console.log("Довжина кола:", circle.getCircumference());
+
+const circumference = Circle.getCircumferenceByRadius(5);
+console.log("Довжина кола (за радіусом):", circumference);
+
+const circleCopy = circle.getCopy();
+console.log("Копія кола:", circleCopy.toString());
+
+const circle2 = Circle.createFromCoordinates(2, 2, 3);
+console.log("Коло 2:", circle2.toString());
+
+console.log("Точка (1, 1) попадає в коло:", circle.isPointInside(1, 1));
+console.log("Точка (10, 10) попадає в коло:", circle.isPointInside(10, 10));
+
+console.log("Стан об'єкта в рядковому представленні:", circle.toString());
+
+
+
+//Завдання2
+function propsCount(currentObject) {
+  return Object.keys(currentObject).length;
+}
+
+// Приклад використання функції propsCount
+const obj1 = { a: 1, b: 2, c: 3 };
+console.log(propsCount(obj1)); // Вивід: 3
+
+const obj2 = { name: "John", age: 30, city: "New York" };
+console.log(propsCount(obj2)); // Вивід: 3
+
+const obj3 = { x: 10, y: 20 };
+console.log(propsCount(obj3)); // Вивід: 2
+
+
+//Завдання3
+
+//Завдання4
+
+
+//Завдання5
