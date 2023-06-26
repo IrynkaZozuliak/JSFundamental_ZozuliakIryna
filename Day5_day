@@ -69,8 +69,66 @@ console.log(propsCount(obj3)); // Вивід: 2
 
 
 //Завдання3
+class Person {
+  constructor(name, surname) {
+    this.name = name;
+    this.surname = surname;
+  }
+
+  showFullName() {
+    console.log(this.name + " " + this.surname);
+  }
+}
+
+class Student extends Person {
+  constructor(name, surname, year) {
+    super(name, surname);
+    this.year = year;
+  }
+
+  showFullName(middleName) {
+    let fullName = this.name + " " + middleName + " " + this.surname;
+    console.log(fullName);
+  }
+}
+
+// Приклад використання класів
+let person = new Person("John", "Doe");
+person.showFullName();  // Виведе: John Doe
+
+let student = new Student("Jane", "Smith", 2020);
+student.showFullName("Doe");  // Виведе: Jane Doe Smith
 
 //Завдання4
+class Marker {
+  constructor(color, inkLevel) {
+    this.color = color;
+    this.inkLevel = inkLevel;
+  }
+
+  print(text) {
+    let printedText = "";
+    for (let i = 0; i < text.length; i++) {
+      if (this.inkLevel <= 0) {
+        console.log("Маркер закінчився!");
+        break;
+      }
+      
+      if (text[i] !== " ") {
+        printedText += text[i];
+        this.inkLevel -= 0.5;
+      } else {
+        printedText += " ";
+      }
+    }
+    
+    console.log("%c" + printedText, `color: ${this.color}`);
+  }
+}
+
+// Приклад використання класу Marker
+const marker = new Marker("blue", 50);
+marker.print("Hello, World!");  // Виведе: Hello, W
 
 
 //Завдання5
