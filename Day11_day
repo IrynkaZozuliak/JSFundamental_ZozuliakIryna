@@ -1,7 +1,36 @@
 //Завдання1
+function getPromise(message, delay) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(message);
+    }, delay);
+  });
+}
+
+getPromise("test promise", 2000).then(function(data) {
+  console.log(data);
+});
 
 
 //Завдання2
+function calcArrProduct(arr) {
+  return new Promise((resolve, reject) => {
+    const product = arr.reduce((acc, curr) => {
+      if (typeof curr === 'number') {
+        return acc * curr;
+      } else {
+        reject("Error! Incorrect array!");
+      }
+    }, 1);
+
+    resolve(product);
+  });
+}
+
+calcArrProduct([3, 4, 5]).then(result => console.log(result)); // 60
+
+calcArrProduct([5, "user2", 7, 12]).then(result => console.log(result));
+// "Error! Incorrect array!"
 
 //Завдання3
 
