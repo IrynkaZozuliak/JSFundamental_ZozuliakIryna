@@ -1,0 +1,84 @@
+//Завдання1
+const http = require('http');
+const os = require('os');
+const path = require('path');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+
+  const username = os.userInfo().username;
+  const osType = os.type();
+  const uptime = Math.floor(os.uptime() / 60); // час роботи в хвилинах
+  const currentDir = process.cwd();
+  const serverFilename = path.basename(__filename);
+
+  const html = `
+    <html>
+      <head>
+        <title>Server Information</title>
+      </head>
+      <body>
+        <h1>Server Information</h1>
+        <p>Username: ${username}</p>
+        <p>OS Type: ${osType}</p>
+        <p>Uptime (minutes): ${uptime}</p>
+        <p>Current Directory: ${currentDir}</p>
+        <p>Server File Name: ${serverFilename}</p>
+      </body>
+    </html>
+  `;
+
+  res.end(html);
+});
+
+server.listen(5000, 'localhost', () => {
+  console.log('Server is running on http://localhost:5000/');
+});
+
+
+//Завдання2
+
+//Завдання3
+
+const http = require('http');
+const fs = require('fs');
+
+const filePath = 'data.txt';
+
+function writeToTextFile(data) {
+  fs.writeFile(filePath, data, (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
+    } else {
+      console.log('Data written to file successfully.');
+    }
+  });
+}
+
+function readFromTextFile() {
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading file:', err);
+    } else {
+      console.log('File content:');
+      console.log(data);
+    }
+  });
+}
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/write' && req.method === 'GET') {
+    const data = 'Hello, World!'; // Введена користувачем інформація
+    writeToTextFile(data);
+    res.end('Data written to file.');
+  } else if (req.url === '/read' && req.method === 'GET') {
+    readFromTextFile();
+    res.end('File content printed in console.');
+  } else {
+    res.end('Invalid request.');
+  }
+});
+
+server.listen(5000, () => {
+  console.log('Server is running on http://localhost:5000/');
+});
